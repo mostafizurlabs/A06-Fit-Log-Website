@@ -1,36 +1,56 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# FitLog
 
-## Getting Started
+## Project Name
 
-First, run the development server:
+FitLog Workout Library & Workout Planning Website
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Description
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+FitLog is a Next.js based website where users can explore different workouts and manage their daily workout plans. Users can view workout details, add exercises to their plan, save their favorite workouts, and mark completed workouts as done.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Built With
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- Next.js
+- React
+- TypeScript
+- Tailwind CSS
+- DaisyUI
+- React Icons
+- React Hot Toast
+- Context API
+- REST API
 
-## Learn More
+## Key Features
 
-To learn more about Next.js, take a look at the following resources:
+1. **Explore Workouts**  
+   Users can explore different workouts with their name, category, duration, calories, rating, and other information.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+2. **Workout Details**  
+   Users can view detailed information about each workout on a separate dynamic details page.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+3. **Add to My Plan**  
+   Users can add workouts to their daily workout plan.
 
-## Deploy on Vercel
+4. **Save Workouts**  
+   Users can save their favorite workouts and view them later.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+5. **Manage My Plan**  
+   Users can view their planned workouts, remove exercises, and mark workouts as completed.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+6. **Sort Workouts**  
+   Users can sort workouts by duration, calories, and rating.
+
+7. **Loading & Error Handling**  
+   Users can see loading animations while data is being fetched and error messages if something goes wrong.
+
+8. **Toast Notifications**  
+   Users receive notifications when adding, removing, saving, or completing workouts.
+
+9. **Responsive Design**  
+   The website works on mobile, tablet, and desktop devices.
+
+## Live Website
+
+Visit Site: https://a06-fit-log-website.vercel.app
+
+
