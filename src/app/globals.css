@@ -1,0 +1,13 @@
+
+
+@import "tailwindcss";
+@plugin "daisyui";
+
+@layer base {
+  body {
+    background-color: #0D0D10;
+  }
+}
+html {
+  overflow-y: scroll;
+}
