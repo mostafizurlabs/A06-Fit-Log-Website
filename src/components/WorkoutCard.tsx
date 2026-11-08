@@ -15,7 +15,7 @@ const WorkoutCard = ({ workout }: { workout: Workout }) => {
         <div className="relative aspect-[16/10] w-full overflow-hidden bg-[#1A1D24] sm:aspect-[16/9]">
           <Image
             src={workout.image}
-            alt={workout.name}
+            alt={`${workout.name} workout`}
             fill
             sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
             className="object-cover object-center transition-transform duration-500 group-hover:scale-105"
