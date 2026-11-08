@@ -14,7 +14,9 @@ const DetailsPageButton = ({ workout }: { workout: Workout }) => {
   } = usePlanContext();
 
   const isPlanFull = planList.length >= 5;
-  const alreadyInPlan = planList.some((item) => item.id === workout.id);
+  const alreadyInPlan = planList.some(
+  (item) => item.id === workout.id && !item.isDone
+);
   const alreadyInSaved = savedList.some((item) => item.id === workout.id);
 
   const handleAddToPlan = () => {

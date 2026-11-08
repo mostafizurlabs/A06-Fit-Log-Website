@@ -2,7 +2,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Workout } from "@/types";
-
+import { SiTinder } from "react-icons/si";
 const WorkoutCard = ({ workout }: { workout: Workout }) => {
   return (
     <Link
@@ -11,7 +11,7 @@ const WorkoutCard = ({ workout }: { workout: Workout }) => {
     >
       <div className="flex h-full flex-col overflow-hidden rounded-xl border border-[#252830] bg-[#222630] transition duration-300 hover:-translate-y-1 hover:border-[#C6FF00]/50">
 
-        {/* Workout Image */}
+
         <div className="relative aspect-[16/10] w-full overflow-hidden bg-[#1A1D24] sm:aspect-[16/9]">
           <Image
             src={workout.image}
@@ -22,10 +22,9 @@ const WorkoutCard = ({ workout }: { workout: Workout }) => {
           />
         </div>
 
-        {/* Workout Information */}
         <div className="flex flex-1 flex-col p-3 sm:p-4 lg:p-5">
 
-          {/* Muscle Groups */}
+
           <div className="mb-3 flex flex-wrap gap-1.5 sm:gap-2">
             {workout.muscleGroups.map((muscle) => (
               <span
@@ -37,17 +36,14 @@ const WorkoutCard = ({ workout }: { workout: Workout }) => {
             ))}
           </div>
 
-          {/* Workout Name */}
           <h2 className="mb-2 line-clamp-2 text-sm font-bold uppercase text-white transition-colors duration-300 group-hover:text-[#C6FF00] sm:text-base">
             {workout.name}
           </h2>
 
-          {/* Equipment */}
           <p className="mb-4 line-clamp-1 text-xs text-[#A1A1AA] sm:mb-5 sm:text-sm">
             {workout.equipment}
           </p>
 
-          {/* Workout Stats */}
           <div className="mt-auto grid grid-cols-3 gap-1.5 border-t border-[#252830] pt-3 text-[#A0A4AD] sm:gap-2 sm:pt-4">
             <div className="min-w-0">
               <p className="text-[9px] text-[#777B85] sm:text-xs">
@@ -63,7 +59,7 @@ const WorkoutCard = ({ workout }: { workout: Workout }) => {
                 Calories
               </p>
               <p className="mt-1 text-[10px] font-semibold text-white sm:text-sm">
-                ♥ {workout.caloriesBurned} kcal
+                <SiTinder className="inline text-[#C6FF00]" />{" "} {workout.caloriesBurned} kcal
               </p>
             </div>
 
