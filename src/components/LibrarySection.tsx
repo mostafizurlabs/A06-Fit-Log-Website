@@ -55,7 +55,7 @@ if (loading) {
       id="library"
       className="w-full max-w-7xl mx-auto px-4 mt-12"
     >
-      {/* Library Heading */}
+
       <div className="mb-6">
         <h2 className="text-2xl sm:text-3xl font-bold text-white uppercase">
           THE LIBRARY
@@ -66,11 +66,17 @@ if (loading) {
         </p>
       </div>
 
-      {/* Workout Cards */}
+
 <div className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-  {workouts.map((workout) => (
+{workouts.length > 0 ? (
+  workouts.map((workout) => (
     <WorkoutCard key={workout.id} workout={workout} />
-  ))}
+  ))
+) : (
+  <p className="col-span-full py-10 text-center text-gray-400">
+    No workouts available right now.
+  </p>
+)}
 </div>
     </section>
   );
