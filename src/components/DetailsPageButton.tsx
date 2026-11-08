@@ -4,6 +4,7 @@
 import { usePlanContext } from "@/context/PlanContext";
 import { Workout } from "@/types";
 import React from "react";
+import { LuCalendarPlus, LuBookmark } from "react-icons/lu";
 
 const DetailsPageButton = ({ workout }: { workout: Workout }) => {
   const {
@@ -33,17 +34,16 @@ const DetailsPageButton = ({ workout }: { workout: Workout }) => {
         type="button"
         onClick={handleAddToPlan}
         disabled={isPlanFull && !alreadyInPlan}
-        className="rounded-xl bg-[#C6FF00] px-5 py-3 font-bold text-black transition hover:bg-[#b4e600] disabled:cursor-not-allowed disabled:opacity-50"
-      >
+className="inline-flex flex-row items-center justify-center gap-2 whitespace-nowrap rounded-xl bg-[#C6FF00] px-5 py-3 font-bold text-black transition hover:bg-[#b4e600] disabled:cursor-not-allowed disabled:opacity-50"      >
+        <LuCalendarPlus size={16} />
         ADD TO TODAY'S PLAN
       </button>
 
       <button
         type="button"
         onClick={handleSavedForLater}
-        className="rounded-xl border border-white px-5 py-3 font-bold text-white"
-      >
-        SAVE FOR LATER
+className="inline-flex flex-row items-center justify-center gap-2 whitespace-nowrap rounded-xl border-2 border-white px-5 py-3 font-bold text-white"      >
+        <LuBookmark size={16} />SAVE FOR LATER
       </button>
     </div>
   );
