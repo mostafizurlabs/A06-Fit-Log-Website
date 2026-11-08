@@ -1,4 +1,3 @@
-
 "use client";
 
 import { PlanContextType, PlanWorkout, Workout } from "@/types";
@@ -17,37 +16,41 @@ export function PlanProvider({ children }: { children: ReactNode }) {
   const [planList, setPlanList] = useState<PlanWorkout[]>([]);
   const [savedList, setSavedList] = useState<Workout[]>([]);
   const [isHydrated, setIsHydrated] = useState(false);
-  useEffect(() => {
-  const savedPlan = localStorage.getItem("fitlog-plan");
-  const savedWorkouts = localStorage.getItem("fitlog-saved");
 
-  if (savedPlan) {
-    setPlanList(JSON.parse(savedPlan));
-  }
+useEffect(() => {
+  try {
+    const savedPlan = localStorage.getItem("fitlog-plan");
+    const savedWorkouts = localStorage.getItem("fitlog-saved");
 
-  if (savedWorkouts) {
-    setSavedList(JSON.parse(savedWorkouts));
+    if (savedPlan) {
+      setPlanList(JSON.parse(savedPlan));
+    }
+
+    if (savedWorkouts) {
+      setSavedList(JSON.parse(savedWorkouts));
+    }
+  } catch (error) {
+    console.error("Failed to load saved workouts:", error);
   }
 
   setIsHydrated(true);
 }, []);
-useEffect(() => {
-  if (isHydrated) {
-    localStorage.setItem("fitlog-plan", JSON.stringify(planList));
-  }
-}, [planList, isHydrated]);
-useEffect(() => {
-  if (isHydrated) {
-    localStorage.setItem("fitlog-saved", JSON.stringify(savedList));
-  }
-}, [savedList, isHydrated]);
+
+  useEffect(() => {
+    if (isHydrated) {
+      localStorage.setItem("fitlog-plan", JSON.stringify(planList));
+    }
+  }, [planList, isHydrated]);
+  useEffect(() => {
+    if (isHydrated) {
+      localStorage.setItem("fitlog-saved", JSON.stringify(savedList));
+    }
+  }, [savedList, isHydrated]);
   const addToPlan = (workout: Workout) => {
-  if (
-  planList.some((item) => item.id === workout.id && !item.isDone)
-) {
-  toast.error("Already in your plan");
-  return;
-}
+    if (planList.some((item) => item.id === workout.id && !item.isDone)) {
+      toast.error("Already in your plan");
+      return;
+    }
 
     if (planList.length >= 5) {
       toast.error("Your plan is full");
@@ -57,7 +60,6 @@ useEffect(() => {
     setPlanList([...planList, { ...workout, isDone: false }]);
     toast.success("Added to your plan");
   };
-
 
   const addToSaved = (workout: Workout) => {
     if (savedList.some((item) => item.id === workout.id)) {
@@ -69,7 +71,6 @@ useEffect(() => {
     toast.success("Added to your saved list");
   };
 
-
   const removeFromPlan = (id: number) => {
     setPlanList(planList.filter((item) => item.id !== id));
     toast.success("Workout removed from your plan");
@@ -80,12 +81,11 @@ useEffect(() => {
     toast.success("Workout removed from your saved list");
   };
 
-
   const markAsDone = (id: number) => {
     setPlanList(
       planList.map((item) =>
-        item.id === id ? { ...item, isDone: true } : item
-      )
+        item.id === id ? { ...item, isDone: true } : item,
+      ),
     );
     toast.success("Workout completed!");
   };
@@ -100,11 +100,7 @@ useEffect(() => {
     markAsDone,
   };
 
-  return (
-    <PlanContext.Provider value={value}>
-      {children}
-    </PlanContext.Provider>
-  );
+  return <PlanContext.Provider value={value}>{children}</PlanContext.Provider>;
 }
 
 export function usePlanContext() {
@@ -112,7 +108,7 @@ export function usePlanContext() {
 
   if (!context) {
     throw new Error(
-      "Please make sure the app is wrapped with the correct context provider."
+      "Please make sure the app is wrapped with the correct context provider.",
     );
   }
 
